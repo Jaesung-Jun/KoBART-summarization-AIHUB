@@ -1,12 +1,15 @@
 # KoBART-summarization-AIHUB
 ## 본 Repository는 seujung님의 KoBART-summarization Repository를 Fork한 것입니다. 
 기존 데이터로 학습된 모델을 AIHUB의 논문요약 데이터로 Fine-tuning 시킵니다. <br>
-도움 받은 seujung님과 Ju-ing( http://blog.ju-ing.com/ )님께 감사의 말씀을 드립니다.
+도움 받은 seujung님과 [Ju-ing](http://blog.ju-ing.com/)님께 감사의 말씀을 드립니다.
 <br>
 참고 : http://blog.ju-ing.com/posts/KoBART-summarization/
 
 ## AIHUB 논문 요약 데이터
 - https://aihub.or.kr/aidata/30712
+- 본 데이터셋은 한국지능정보사회진흥원의 사업결과 임.
+- 반드시 위의 링크를 통해서만 데이터셋을 다운로드 받아야 함.
+- 만약 본 Github 저장소에 허가되지 않은 데이터셋이 존재한다면, jasonjun1121@gmail.com 으로 메일 부탁드리겠습니다.
 ## Load KoBART
 - huggingface.co에 있는 binary를 활용
   - https://huggingface.co/gogamza/kobart-base-v1
@@ -67,7 +70,8 @@ streamlit==1.2.0
 | 뉴스원문| 요약문 |  
 
 - 참조 데이터
-  - AIHUB 문서 요약 데이터 (https://aihub.or.kr/aidata/8054)
+  - [AIHUB 문서 요약 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=90)
+- [Dacon 한국어 문서 생성요약 AI 경진대회](https://dacon.io/competitions/official/235673/overview/) 의 학습데이터로 pretrained 된 모델에 AIHUB 문서 요약 데이터로 Fine-tuning시킴.
 
 
 ## How to Train
@@ -134,7 +138,9 @@ streamlit run infer.py
   
 <img src="imgs/demo.png" alt="drawing" style="width:600px;"/>
 
+* https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11039042
+
 ## Reference
 - [KoBART](https://github.com/SKT-AI/KoBART)
 - [KoBART-chatbot](https://github.com/haven-jeon/KoBART-chatbot)
-- [AIHUB 논문 요약 데이터](https://aihub.or.kr/aidata/30712)
+- [AIHUB 논문 요약 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=90)

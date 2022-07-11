@@ -15,7 +15,7 @@ def load_model():
 model = load_model()
 tokenizer = get_kobart_tokenizer()
 st.title("KoBART 논문 요약")
-st.markdown("2019218069 전제성 2022-1학기 자연어 음성처리 과제")
+st.markdown("2022-1학기 자연어음성처리 과제")
 st.markdown("https://github.com/seujung/KoBART-summarization")
 text = st.text_area("논문 입력:")
 
