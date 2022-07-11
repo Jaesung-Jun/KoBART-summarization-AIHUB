@@ -1,6 +1,6 @@
 # KoBART-summarization-AIHUB
 ## 본 Repository는 seujung님의 KoBART-summarization Repository를 Fork한 것입니다. 
-기존 데이터로 학습된 모델을 AIHUB의 논문요약 데이터로 Fine-tuning 시킵니다. <br>
+기존 데이터 (https://github.com/seujung/KoBART-summarization/tree/main/data) 로 학습된 모델을 AIHUB의 논문요약 데이터로 Fine-tuning 시킵니다. <br>
 도움 받은 seujung님과 Ju-ing( http://blog.ju-ing.com/ )님께 감사의 말씀을 드립니다.
 <br>
 참고 : http://blog.ju-ing.com/posts/KoBART-summarization/
