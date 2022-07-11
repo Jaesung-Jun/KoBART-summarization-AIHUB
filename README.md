@@ -137,7 +137,7 @@ streamlit run infer.py
 - Demo Page 실행 결과
   - [원문링크](https://www.mk.co.kr/news/society/view/2020/12/1289300/?utm_source=naver&utm_medium=newsstand)
   
-<img src="imgs/demo.png" alt="drawing" style="width:600px;"/>
+<img src="imgs/demo_edited.png" alt="drawing" style="width:600px;"/>
 
 * https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11039042
 
