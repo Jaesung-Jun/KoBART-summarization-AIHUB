@@ -41,6 +41,12 @@ class KoBARTSummaryDataset(Dataset):
     
     def __getitem__(self, idx):
         instance = self.docs.iloc[idx]
+        #print("============================news===============================")
+        #print(type(instance['news']))
+        #print(instance['news'][:50])
+        #print("============================summary===============================")
+        #print(type(instance['summary']))
+        #print(instance['summary'][:50])
         input_ids = self.tokenizer.encode(instance['news'])
         input_ids = self.add_padding_data(input_ids)
 
@@ -95,7 +101,7 @@ class KobartSummaryModule(pl.LightningDataModule):
     def train_dataloader(self):
         train = DataLoader(self.train,
                            batch_size=self.batch_size,
-                           num_workers=self.num_workers, shuffle=True)
+                           num_workers=self.num_workers, shuffle=False)
         return train
 
     def val_dataloader(self):

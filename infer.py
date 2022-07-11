@@ -2,28 +2,36 @@ import torch
 import streamlit as st
 from kobart import get_kobart_tokenizer
 from transformers.models.bart import BartForConditionalGeneration
+from PIL import Image
 
-@st.cache
+smu_image = Image.open("imgs/smu.png")
+
+@st.cache(hash_funcs={torch.nn.parameter.Parameter: lambda _: None})
 def load_model():
-    model = BartForConditionalGeneration.from_pretrained('./kobart_summary')
+    model = BartForConditionalGeneration.from_pretrained('./kobart_summary_finetuned')
     # tokenizer = get_kobart_tokenizer()
     return model
 
 model = load_model()
 tokenizer = get_kobart_tokenizer()
-st.title("KoBART 요약 Test")
-text = st.text_area("뉴스 입력:")
+st.title("KoBART 논문 요약")
+st.markdown("2019218069 전제성 2022-1학기 자연어 음성처리 과제")
+st.markdown("https://github.com/seujung/KoBART-summarization")
+text = st.text_area("논문 입력:")
 
-st.markdown("## 뉴스 원문")
+st.markdown("### 논문 원문")
+
 st.write(text)
 
 if text:
     text = text.replace('\n', '')
     st.markdown("## KoBART 요약 결과")
-    with st.spinner('processing..'):
+    with st.spinner('processing....'):
         input_ids = tokenizer.encode(text)
         input_ids = torch.tensor(input_ids)
         input_ids = input_ids.unsqueeze(0)
         output = model.generate(input_ids, eos_token_id=1, max_length=512, num_beams=5)
         output = tokenizer.decode(output[0], skip_special_tokens=True)
     st.write(output)
+
+st.image(smu_image, caption='Semyung University School of Computer Science')

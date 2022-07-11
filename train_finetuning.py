@@ -10,6 +10,7 @@ from torch.utils.data import DataLoader, Dataset
 from dataset import KobartSummaryModule
 from transformers import BartForConditionalGeneration, PreTrainedTokenizerFast
 from transformers.optimization import AdamW, get_cosine_schedule_with_warmup
+#from pytorch_lightning import Trainer
 
 parser = argparse.ArgumentParser(description='KoBART Summarization')
 
@@ -121,7 +122,7 @@ class Base(pl.LightningModule):
 class KoBARTConditionalGeneration(Base):
     def __init__(self, hparams, trainer=None, **kwargs):
         super(KoBARTConditionalGeneration, self).__init__(hparams, trainer, **kwargs)
-        self.model = BartForConditionalGeneration.from_pretrained('gogamza/kobart-base-v1')
+        self.model = BartForConditionalGeneration.from_pretrained('./kobart_summary_pretrained')
         #self.model = BartForConditionalGeneration.from_pretrained('gogamza/kobart-base-v1')
         self.model.train()
         self.bos_token = '<s>'

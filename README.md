@@ -1,5 +1,12 @@
-# KoBART-summarization
+# KoBART-summarization-AIHUB
+## 본 Repository는 seujung님의 KoBART-summarization Repository를 Fork한 것입니다. 
+기존 데이터로 학습된 모델을 AIHUB의 논문요약 데이터로 Fine-tuning 시킵니다. <br>
+도움 받은 seujung님과 Ju-ing( http://blog.ju-ing.com/ )님께 감사의 말씀을 드립니다.
+<br>
+참고 : http://blog.ju-ing.com/posts/KoBART-summarization/
 
+## AIHUB 논문 요약 데이터
+- https://aihub.or.kr/aidata/30712
 ## Load KoBART
 - huggingface.co에 있는 binary를 활용
   - https://huggingface.co/gogamza/kobart-base-v1
@@ -93,23 +100,6 @@ python train.py  --gradient_clip_val 1.0  \
                  --batch_size 4 \
                  --num_workers 4
 ```
-## Generation Sample
-| ||Text|
-|-------|:--------|:--------|
-|1|Label|태왕의 '성당 태왕아너스 메트로'모델하우스는 초역세권 입지와 변화하는 라이프스타일에 맞춘 혁신평면으로 오픈 당일부터 관람객의 줄이 이어지면서 관람객의 호평을 받았다.|
-|1|koBART|아파트 분양시장이 실수요자 중심으로 바뀌면서 초역세권 입지와 변화하는 라이프스타일에 맞춘 혁신평면이 아파트 선택에 미치는 영향력이 커지고 있는 가운데, 태왕이 지난 22일 공개한 ‘성당 태왕아너스 메트로’ 모델하우스를 찾은 방문객들은 합리적인 분양가와 중도금무이자 등의 분양조건도 실수요자에게 유리해 높은 청약경쟁률을 기대했다.|
-
-| ||Text|
-|-------|:--------|:--------|
-|2|Label|광주지방국세청은 '상생하고 포용하는 세정구현을 위한' 혁신성장 기업 세정지원 설명회를 열어 여러 세정지원 제도를 안내하고 기업 현장의 애로, 건의사항을 경청하며 기업 맞춤형 세정서비스를 제공할 것을 약속했다.|
-|2|koBART|17일 광주지방국세청은 정부광주지방합동청사 3층 세미나실에서 혁신성장 경제정책을 세정차원에서 뒷받침하기 위해 다양한 세정지원 제도를 안내하는 동시에 기업 현장의 애로·건의사항을 경청하기 위해 ‘상생하고 포용하는 세정구현을 위한’ 혁신성장 기업 세정지원 설명회를 열어 주목을 끌었다.'|
-
-| ||Text|
-|-------|:--------|:--------|
-|3|Label|신용보증기금 등 3개 기관은 31일 서울 중구 기업은행 본점에서 최근 경영에 어려움을 겪는 소상공인 등의 금융비용 부담을 줄이고 서민경제에 활력을 주기 위해 '소상공인. 자영업자 특별 금융지원 업무협약'을 체결했다고 전했으며 지원대상은 필요한 조건을 갖춘 수출중소기업, 유망창업기업 등이다.|
-|3|koBART|최근 경영애로를 겪고 있는 소상공인과 자영업자의 금융비용 부담을 완화하고 서민경제의 활력을 제고하기 위해 신용보증기금·기술보증기금·신용보증재단 중앙회·기업은행은 31일 서울 중구 기업은행 본점에서 ‘소상공인·자영업자 특별 금융지원 업무협약’을 체결했다.|
-
-
 
 ## Model Performance
 - Test Data 기준으로 rouge score를 산출함
@@ -122,6 +112,7 @@ python train.py  --gradient_clip_val 1.0  \
 | F1| 0.505| 0.340|0.415|
 
 ## Demo
+- Kobertsum_finetuning_aihub.ipynb를 참고해주세요.
 - 학습한 model binary 추출 작업이 필요함
    - pytorch-lightning binary --> huggingface binary로 추출 작업 필요
    - hparams의 경우에는 <b>./logs/tb_logs/default/version_0/hparams.yaml</b> 파일을 활용
@@ -146,3 +137,4 @@ streamlit run infer.py
 ## Reference
 - [KoBART](https://github.com/SKT-AI/KoBART)
 - [KoBART-chatbot](https://github.com/haven-jeon/KoBART-chatbot)
+- [AIHUB 논문 요약 데이터](https://aihub.or.kr/aidata/30712)
