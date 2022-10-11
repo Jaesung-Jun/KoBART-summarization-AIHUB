@@ -1,5 +1,5 @@
 # KoBART-summarization-AIHUB
-## 2022 HCLT 포스터 발표 Accpeted
+## 2022 HCLT 포스터 발표 Accepted
 ## 본 Repository는 seujung님의 KoBART-summarization Repository를 Fork한 것입니다. 
 
 기존 데이터 (https://github.com/seujung/KoBART-summarization/tree/main/data) 로 학습된 모델을 AIHUB의 논문요약 데이터로 Fine-tuning 시킵니다. <br>
